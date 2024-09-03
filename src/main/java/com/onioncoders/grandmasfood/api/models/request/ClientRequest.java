@@ -1,6 +1,6 @@
 package com.onioncoders.grandmasfood.api.models.request;
 
-import com.onioncoders.grandmasfood.utils.TypeID;
+import com.onioncoders.grandmasfood.utils.enums.TypeID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;

@@ -24,11 +24,12 @@ public class OrderEntity {
 
     @Id
     private UUID id;
-    private LocalDateTime fecha;
+    @Column(name = "creationdatetime")
+    private LocalDateTime creationDateTime;
     @Column(length = 100)
-    private Integer cantidad;
-    @Column(length = 511)
-    private String informacionAdicional;
+    private Integer quantity;
+    @Column(length = 511, name = "extrainformation")
+    private String extraInformation;
     @Column(name = "comboFK")
     private Long combo;
     @ManyToOne
