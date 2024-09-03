@@ -6,6 +6,7 @@ import com.onioncoders.grandmasfood.domain.entities.ClientEntity;
 import com.onioncoders.grandmasfood.domain.repositories.ClientRepository;
 import com.onioncoders.grandmasfood.domain.repositories.OrderRepository;
 
+import java.util.Set;
 import java.util.UUID;
 
 import org.springframework.beans.BeanUtils;
@@ -22,20 +23,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ClientService implements IClientService {
 
-
-
     private final ClientRepository clientRepository;
     private final OrderRepository orderRepository;
 
     public ClientService(OrderRepository orderRepository, ClientRepository clientRepository) {
         this.orderRepository = orderRepository;
         this.clientRepository=clientRepository;
-
     }
 
     @Override
     public ClientResponse create(ClientRequest request) {
-    
         var clientToPersist= ClientEntity.builder()
             .id(UUID.randomUUID())
             .deliveryAddress(request.getDeliveryAddress())
@@ -67,14 +64,31 @@ public class ClientService implements IClientService {
 
     @Override
     public void delete(UUID uuid) {
+        var clientToDelete = clientRepository.findById(uuid).orElseThrow();
+        this.clientRepository.delete(clientToDelete);
+    }
 
+    @Override
+    public ClientResponse findByEmail(String email) {
+        ClientEntity client = clientRepository.findByEmail(email);
+        return entityToResponse(client) ;
+    }
+
+    @Override
+    public ClientResponse findByDocument(String document) {
+        var client = clientRepository.findByDocument(document);
+        
+        return entityToResponse(client);
     }
 
     private ClientResponse entityToResponse(ClientEntity entity){
         var response = new ClientResponse();
         BeanUtils.copyProperties(entity, response);
 
-        return response;
-       
+        return response;   
     }
+
+
+
+
 }

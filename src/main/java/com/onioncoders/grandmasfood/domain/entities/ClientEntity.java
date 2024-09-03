@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 import java.util.UUID;
 
-import com.onioncoders.grandmasfood.utils.TypeID;
+import com.onioncoders.grandmasfood.utils.enums.TypeID;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -20,8 +20,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-
 
 @Entity(name = "clientes")
 @NoArgsConstructor
@@ -30,9 +28,8 @@ import lombok.extern.slf4j.Slf4j;
 @Builder
 
 public class ClientEntity {
-
     @Id 
-    @Column(length = 36)
+    @Column(length = 32)
     private UUID id;
     @Column(length = 20)
     private String document;
