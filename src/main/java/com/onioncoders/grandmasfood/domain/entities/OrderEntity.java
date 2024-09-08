@@ -30,10 +30,10 @@ public class OrderEntity {
     private Integer quantity;
     @Column(length = 511, name = "extrainformation")
     private String extraInformation;
-    @Column(name = "comboFK")
+    @Column(name = "combofk")
     private Long combo;
     @ManyToOne
-    @JoinColumn(name = "clienteFK")
+    @JoinColumn(name = "clientfk")
     private ClientEntity client;
 
 

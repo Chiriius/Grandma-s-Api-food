@@ -43,7 +43,6 @@ public class ClientService implements IClientService {
             .tipoID(request.getTipoID())
             .build();
 
-        System.out.println(clientToPersist.getId());
         var clientPersisted =this.clientRepository.save(clientToPersist);
 
         log.info("Client saved with id: {}",clientPersisted.getDocument());
