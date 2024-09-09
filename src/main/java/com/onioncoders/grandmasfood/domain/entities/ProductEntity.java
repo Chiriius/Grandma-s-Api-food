@@ -21,9 +21,10 @@ public class ProductEntity {
     @Id
     private UUID id;
     private String name;
+    private String description;
     private Integer price;
     private Integer stock;
-
+    private Boolean available;
     @ManyToOne
     @JoinColumn(name = "categoryfk")
     private CategoryEntity category;
