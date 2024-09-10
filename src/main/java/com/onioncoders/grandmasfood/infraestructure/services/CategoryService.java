@@ -6,9 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.onioncoders.grandmasfood.api.models.request.CategoryRequest;
 import com.onioncoders.grandmasfood.api.models.responses.CategoryResponse;
-import com.onioncoders.grandmasfood.api.models.responses.ClientResponse;
 import com.onioncoders.grandmasfood.domain.entities.CategoryEntity;
-import com.onioncoders.grandmasfood.domain.entities.ClientEntity;
 import com.onioncoders.grandmasfood.domain.repositories.CategoryRepository;
 import com.onioncoders.grandmasfood.infraestructure.abstract_services.ICategoryService;
 

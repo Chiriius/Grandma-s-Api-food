@@ -1,6 +1,5 @@
 package com.onioncoders.grandmasfood.domain.entities;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.UUID;
 

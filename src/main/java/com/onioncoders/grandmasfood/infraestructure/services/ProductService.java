@@ -1,21 +1,19 @@
 package com.onioncoders.grandmasfood.infraestructure.services;
 
-import com.onioncoders.grandmasfood.api.models.request.ProductRequest;
-import com.onioncoders.grandmasfood.api.models.responses.ClientResponse;
-import com.onioncoders.grandmasfood.api.models.responses.ProductResponse;
-import com.onioncoders.grandmasfood.domain.entities.ClientEntity;
-import com.onioncoders.grandmasfood.domain.entities.ProductEntity;
-import com.onioncoders.grandmasfood.domain.repositories.ProductRepository;
+import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import com.onioncoders.grandmasfood.api.models.request.ProductRequest;
+import com.onioncoders.grandmasfood.api.models.responses.ProductResponse;
+import com.onioncoders.grandmasfood.domain.entities.ProductEntity;
+import com.onioncoders.grandmasfood.domain.repositories.ProductRepository;
 import com.onioncoders.grandmasfood.infraestructure.abstract_services.IProductService;
 
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.UUID;
 
 @Transactional
 @Service
@@ -51,13 +49,28 @@ public class ProductService implements IProductService  {
         return this.entityToResponse(productFromDB);
     }
 
+    public List<ProductEntity> getAllProducts() {
+        return productRepository.findAll();
+    }
+
     @Override
     public ProductResponse update(ProductRequest request, UUID uuid) {
-        return null;
+        var ProductToUpdate = productRepository.findById(uuid).orElseThrow();
+
+        ProductToUpdate.setName(request.getName());
+        ProductToUpdate.setCategory(request.getCategoryFK());
+        ProductToUpdate.setDescription(request.getDescription());
+        ProductToUpdate.setPrice(request.getPrice());
+        ProductToUpdate.setAvailable(request.getAvailable());
+
+        return this.entityToResponse(ProductToUpdate);
     }
 
     @Override
     public void delete(UUID uuid) {
+        var ProductToDelete = productRepository.findById(uuid).orElseThrow();
+        this.productRepository.delete(ProductToDelete);
+
 
     }
 

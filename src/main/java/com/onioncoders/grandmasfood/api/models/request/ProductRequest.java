@@ -1,13 +1,7 @@
 package com.onioncoders.grandmasfood.api.models.request;
 
-import java.util.UUID;
-
 import com.onioncoders.grandmasfood.domain.entities.CategoryEntity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

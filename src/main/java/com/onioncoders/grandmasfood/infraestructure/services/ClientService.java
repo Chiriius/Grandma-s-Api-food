@@ -1,18 +1,17 @@
 package com.onioncoders.grandmasfood.infraestructure.services;
 
-import com.onioncoders.grandmasfood.api.models.request.ClientRequest;
-import com.onioncoders.grandmasfood.api.models.responses.ClientResponse;
-import com.onioncoders.grandmasfood.domain.entities.ClientEntity;
-import com.onioncoders.grandmasfood.domain.repositories.ClientRepository;
-import com.onioncoders.grandmasfood.domain.repositories.OrderRepository;
-
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.onioncoders.grandmasfood.api.models.request.ClientRequest;
+import com.onioncoders.grandmasfood.api.models.responses.ClientResponse;
+import com.onioncoders.grandmasfood.domain.entities.ClientEntity;
+import com.onioncoders.grandmasfood.domain.repositories.ClientRepository;
+import com.onioncoders.grandmasfood.domain.repositories.OrderRepository;
 import com.onioncoders.grandmasfood.infraestructure.abstract_services.IClientService;
 
 import lombok.var;
@@ -54,6 +53,10 @@ public class ClientService implements IClientService {
     public ClientResponse read(UUID uuid) {
         var clientFromDB = this.clientRepository.findById(uuid).orElseThrow();
         return this.entityToResponse(clientFromDB);
+    }
+
+    public List<ClientEntity> getAllClients() {
+        return clientRepository.findAll();
     }
 
     @Override

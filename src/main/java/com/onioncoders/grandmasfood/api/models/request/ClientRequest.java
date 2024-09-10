@@ -2,10 +2,8 @@ package com.onioncoders.grandmasfood.api.models.request;
 
 import com.onioncoders.grandmasfood.utils.enums.TypeID;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
