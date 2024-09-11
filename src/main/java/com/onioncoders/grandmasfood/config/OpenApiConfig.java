@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @OpenAPIDefinition(
-        info = @Info(title = "Poject Grandma's food API" ,version = "1.0",description = "Basic documentation for the API")
+        info = @Info(title = "Project Grandma's food API" ,version = "1.0",description = "Basic documentation for the API")
 )
 public class OpenApiConfig {
 

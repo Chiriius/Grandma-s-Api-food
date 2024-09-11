@@ -32,7 +32,7 @@ public class OrderEntity {
     @Column(name = "combofk")
     private Long combo;
     @ManyToOne
-    @JoinColumn(name = "clientfk")
+    @JoinColumn(name = "clientefk")
     private ClientEntity client;
 
 
