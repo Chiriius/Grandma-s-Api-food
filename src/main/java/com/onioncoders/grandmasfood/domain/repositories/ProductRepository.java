@@ -7,5 +7,5 @@ import com.onioncoders.grandmasfood.domain.entities.ProductEntity;
 
 public interface ProductRepository extends JpaRepository<ProductEntity, UUID> {
 
-    
+   
 }

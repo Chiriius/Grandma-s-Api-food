@@ -23,7 +23,7 @@ public class ComboController {
 
     private final IComboService comboService;
 
-    @PostMapping("path")
+    @PostMapping()
     public ResponseEntity<ComboResponse> post(@RequestBody ComboRequest request) {
         
         return ResponseEntity.ok(comboService.create(request));

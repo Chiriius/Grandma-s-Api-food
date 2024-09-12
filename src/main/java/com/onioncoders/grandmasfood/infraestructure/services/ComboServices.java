@@ -3,6 +3,8 @@ package com.onioncoders.grandmasfood.infraestructure.services;
 import java.util.UUID;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.onioncoders.grandmasfood.api.models.request.ComboRequest;
 import com.onioncoders.grandmasfood.api.models.responses.ComboResponse;
@@ -14,7 +16,11 @@ import com.onioncoders.grandmasfood.infraestructure.Helpers.ForeignKeyHelper;
 import com.onioncoders.grandmasfood.infraestructure.abstract_services.IComboService;
 
 import lombok.var;
+import lombok.extern.slf4j.Slf4j;
 
+@Transactional
+@Service
+@Slf4j
 public class ComboServices implements IComboService {
 
     private final ProductRepository productRepository;
@@ -50,19 +56,19 @@ public class ComboServices implements IComboService {
     }
 
     @Override
-    public ComboResponse read(Long id) {
+    public ComboResponse read(UUID id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'read'");
     }
 
     @Override
-    public ComboResponse update(ComboRequest request, Long id) {
+    public ComboResponse update(ComboRequest request, UUID id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(UUID id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }

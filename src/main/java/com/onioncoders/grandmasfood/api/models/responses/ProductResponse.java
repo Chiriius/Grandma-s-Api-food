@@ -11,6 +11,6 @@ public class ProductResponse {
     private String description;
     private Integer stock;
     private Boolean available;
-    private CategoryEntity categoryEntity;
+    
     
 }

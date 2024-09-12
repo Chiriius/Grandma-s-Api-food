@@ -15,6 +15,7 @@ import com.onioncoders.grandmasfood.domain.repositories.ProductRepository;
 import com.onioncoders.grandmasfood.infraestructure.Helpers.ForeignKeyHelper;
 import com.onioncoders.grandmasfood.infraestructure.abstract_services.IProductService;
 
+
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
@@ -38,7 +39,7 @@ public class ProductService implements IProductService  {
 
         Long categoryId = request.getCategoryFK();
 
-        CategoryEntity category = foreignKeyHelper.getCategoryById(categoryId);
+    CategoryEntity category = foreignKeyHelper.getCategoryById(categoryId);
 
             var productToPersist= ProductEntity.builder()
             .id(UUID.randomUUID())
