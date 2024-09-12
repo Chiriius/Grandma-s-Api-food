@@ -1,7 +1,5 @@
 package com.onioncoders.grandmasfood.api.models.request;
 
-import com.onioncoders.grandmasfood.domain.entities.CategoryEntity;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +15,6 @@ public class ProductRequest {
     private Boolean available;
     private Integer price;
     private Integer stock;
-    private CategoryEntity categoryFK;
+    private Long categoryFK;
     
 }

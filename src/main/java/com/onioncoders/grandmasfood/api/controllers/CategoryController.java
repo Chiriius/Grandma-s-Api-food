@@ -40,6 +40,7 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.read(id));
     }
 
+
     @Operation(summary = "Update a category with id passed")
     @PutMapping (path = "{id}")
     public ResponseEntity<Void> put(@PathVariable Long id,@RequestBody CategoryRequest request){

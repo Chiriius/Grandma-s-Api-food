@@ -46,8 +46,8 @@ public class ClientController {
     public ResponseEntity<ClientResponse> get(@PathVariable UUID id) {
         return ResponseEntity.ok(clientService.read(id));
     }
-    @GetMapping("/list")
-    public List<ClientEntity> getAllClients() {
+    @GetMapping()
+        public List<ClientEntity> getAllClients() {
         return clientService.getAllClients();
     }
 

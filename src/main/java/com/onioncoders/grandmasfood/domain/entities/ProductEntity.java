@@ -26,7 +26,7 @@ public class ProductEntity {
     private Integer stock;
     private Boolean available;
     @ManyToOne
-    @JoinColumn(name = "categoryfk")
+    @JoinColumn(name = "categoryfk", nullable = false)
     private CategoryEntity category;
     
 }

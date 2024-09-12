@@ -61,7 +61,14 @@ public class ClientService implements IClientService {
 
     @Override
     public ClientResponse update(ClientRequest request, UUID uuid) {
-        return null;
+       ClientEntity existClient = clientRepository.findById(uuid).orElseThrow();
+
+       existClient.setDocument(request.getDocument());
+       existClient.setName(request.getName());
+       existClient.setPhone(request.getPhone());
+       existClient.setDeliveryAddress(request.getDeliveryAddress());
+
+        return entityToResponse(existClient);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.onioncoders.grandmasfood.domain.entities;
 
+import java.util.UUID;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -17,10 +19,11 @@ import lombok.NoArgsConstructor;
 public class ComboEntity {
 
     @Id
-    private Long id;
+    private UUID id;
     private String name;
-    private String description;
+    private Integer quantity;
     private Double priceWithoutTax;
+    private String extrainformation;
 
     @ManyToOne
     @JoinColumn(name = "category_fk", nullable = false)
